@@ -69,6 +69,7 @@ class MoviesController extends Controller
 
         public function show()
     {
+
         $movies = Movies::all();
         return view('welcome', [
             'movies' => $movies

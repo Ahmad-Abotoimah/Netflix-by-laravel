@@ -2,6 +2,8 @@
 use App\Http\Controllers\MoviesController;
 use Illuminate\Support\Facades\Route;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,5 +23,9 @@ Route::get('/show', function () {
     return view('show');
 })->name('show_movie');
 
-Route::resource('/movies',MoviesController::class);
+Route::resource('/movies',MoviesController::class)->middleware(['Check','auth']);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
